@@ -21,12 +21,12 @@
 % ---------- Section ----------
 \def\@makesectionhead#1{%
   {\par\vspace{20pt}%
-   \parindent 0pt\raggedleft\sectionfont
+   \parindent 0pt\raggedright\sectionfont
    \colorbox{secbar}{%
      \parbox[t]{70pt}{\color{white}\@sectionstrut\@depth4.5\p@\hfill
        \ifnum\c@secnumdepth>\z@\thesection\fi}%
    }%
-   \begin{minipage}[t]{\dimexpr\textwidth-90pt-2\fboxsep\relax}
+   \begin{minipage}[t]{\dimexpr\textwidth-70pt-2\fboxsep-10pt\relax}
      \color{sectxt}\@sectionstrut\hspace{5pt}#1
    \end{minipage}\par
    \vspace{10pt}%
@@ -54,13 +54,12 @@
 % ---------- Subsection ----------
 \def\@maksubsectionhead#1{%
   {\par\vspace{10pt}%
-   \parindent 0pt\raggedleft\subsectionfont
-   \hspace*{1.5em}%
+   \parindent 0pt\raggedright\subsectionfont
    \colorbox{subbar}{%
      \parbox[t]{70pt}{\color{white}\@sectionstrut\@depth4.5\p@\hfill
        \ifnum\c@secnumdepth>\z@\thesubsection\fi}%
    }%
-   \begin{minipage}[t]{\dimexpr\textwidth-90pt-2\fboxsep\relax}
+   \begin{minipage}[t]{\dimexpr\textwidth-70pt-2\fboxsep-10pt\relax}
      \color{subtxt}\@sectionstrut\hspace{5pt}#1
    \end{minipage}\par
    \vspace{5pt}%

@@ -9,6 +9,11 @@
 
 \tcbuselibrary{skins, breakable}
 
+% --- Inline Emoji ---
+% Usage: \e{capy}  (looks up emojis/capy.png)
+% Drop Slack emoji PNGs into the emojis/ folder, then reference by name.
+\newcommand{\e}[1]{\raisebox{-0.2ex}{\includegraphics[height=1em]{emojis/#1.png}}}
+
 % --- Color Palette (Cool Slate/Blue Theme) ---
 \definecolor{meetingblue}{HTML}{2A74B9}
 \definecolor{taskframe}{HTML}{2D3748} % Cool Slate - Borders
@@ -54,32 +59,33 @@
     segmentation style={draw=meetingblue!30, line width=1pt, solid},
 }
 
-% --- HF Links Helpers ---
+% --- Links Helpers ---
 % Usage:
-% \hflinks{
-%   \hflink{dataset}{https://huggingface.co/datasets/...}
-%   \hflink{model}{https://huggingface.co/...}
+% \meetinglinks{
+%   \meetinglink{Dataset}{https://huggingface.co/datasets/...}
+%   \meetinglink{W\&B Run}{https://wandb.ai/...}
+%   \meetinglink{PR}{https://github.com/...}
 % }
 %
 % Default shows "Link" to keep the panel compact.
 % If you want the URL shown instead, replace "Link" with \texttt{#2}.
-\newcommand{\hflink}[2]{%
+\newcommand{\meetinglink}[2]{%
   \noindent\faLink\space \textbf{#1:} \href{#2}{Link}\par
 }
-\newcommand{\hflinks}[1]{#1}
+\newcommand{\meetinglinks}[1]{#1}
 
 % --- Meeting Header Command ---
-% Accepts 5 arguments: {Date}{Commit}{HF}{Summary}{Housekeeping}
-% HF (#3) can be either:
+% Accepts 5 arguments: {Date}{Commit}{Links}{Summary}{Housekeeping}
+% Links (#3) can be either:
 %   - a single URL: {https://...}
-%   - a list using \hflinks{ \hflink{...}{...} ... }
+%   - a list using \meetinglinks{ \meetinglink{...}{...} ... }
 \newcommand{\meetingheader}[5]{%
     \begin{meetingheaderbox}
         % LEFT PANEL
         \small
         \faCalendar* \space \textbf{Date:} #1 \\
         \faGithub \space \textbf{Git:} \texttt{#2} \\[3pt]
-        \faGrinBeam \space \textbf{HF:}\\
+        \faLink \space \textbf{Links:}\\
         #3
         
         \tcblower
